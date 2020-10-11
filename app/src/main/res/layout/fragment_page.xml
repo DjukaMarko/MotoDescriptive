@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:id="@+id/fragment_page"
+    tools:context=".fragments.PageFragment">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_margin="15dp">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <!-- TODO: Update blank fragment layout -->
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="heytytyy"
+                android:layout_centerHorizontal="true"
+                android:layout_margin="10dp"
+                android:id="@+id/texttest"
+                android:textSize="30dp"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/texttest2"
+                android:layout_centerHorizontal="true"
+                android:textSize="20dp"
+                android:text="fw"
+                android:layout_below="@id/texttest"/>
+
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="200dp"
+                android:layout_below="@id/texttest2"
+                android:layout_margin="11dp"
+                android:layout_centerHorizontal="true"
+                android:id="@+id/imageFragment"
+                android:src="@drawable/ic_launcher_background"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/texttest3"
+                android:text="test"
+                android:layout_margin="15dp"
+                android:textSize="20dp"
+                android:layout_below="@id/imageFragment"/>
+
+
+
+
+        </RelativeLayout>
+
+
+
+
+
+    </ScrollView>
+
+
+</RelativeLayout>
