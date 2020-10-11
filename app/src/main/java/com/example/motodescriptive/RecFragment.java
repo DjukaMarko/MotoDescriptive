@@ -11,6 +11,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.SearchView;
+import android.widget.TextView;
 
 import java.util.ArrayList;
 
@@ -20,6 +21,7 @@ public class RecFragment extends Fragment implements MotorAdapter.OnNoteClicked 
     private RecyclerView recyclerView;
     private MotorAdapter adapter;
     private SearchView searchView;
+    private TextView text;
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
