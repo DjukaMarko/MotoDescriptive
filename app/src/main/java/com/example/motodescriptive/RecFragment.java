@@ -65,8 +65,9 @@ public class RecFragment extends Fragment implements MotorAdapter.OnNoteClicked 
     }
 
     @Override
-    public void OnNote() {
+    public void OnNote(Bundle bundle) {
         Intent intent = new Intent(getContext(), Fragments.class);
+        intent.putExtras(bundle);
         startActivity(intent);
     }
 }
