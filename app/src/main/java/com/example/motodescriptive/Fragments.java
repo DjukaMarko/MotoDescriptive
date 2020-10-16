@@ -26,9 +26,11 @@ public class Fragments extends AppCompatActivity{
 
         texttest = findViewById(R.id.texttest);
 
-        Bundle extras = getIntent().getExtras();
+        //ArrayList<MotoEntity> motoEntities = (ArrayList<MotoEntity>) MainActivity.appDatabase.motoDao().getAll();
         Fragment frg = new PageFragment();
-        frg.setArguments(extras);
+        //Bundle extras = getIntent().getExtras();
+        //Fragment frg = new PageFragment();
+        //frg.setArguments(extras);
 
 
         ArrayList<Fragment> list = new ArrayList<>();

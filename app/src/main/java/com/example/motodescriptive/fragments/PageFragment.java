@@ -12,6 +12,8 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
+import com.example.motodescriptive.MainActivity;
+import com.example.motodescriptive.MotoEntity;
 import com.example.motodescriptive.MotorItems;
 import com.example.motodescriptive.R;
 
@@ -45,12 +47,12 @@ public class PageFragment extends Fragment {
         imageFragment = v.findViewById(R.id.imageFragment);
 
         Bundle bundle = getArguments();
-        ArrayList<MotorItems> arr = bundle.getParcelableArrayList("arrayL");
+        //ArrayList<MotorItems> arr = bundle.getParcelableArrayList("arrayL");
+        ArrayList<MotoEntity> motoEntities = (ArrayList<MotoEntity>) MainActivity.appDatabase.motoDao().getAll();
 
-        texttest.setText(arr.get(bundle.getInt("position")).getName());
-        texttest2.setText(arr.get(bundle.getInt("position")).getDescription());
-        texttest3.setText(arr.get(bundle.getInt("position")).getFullDescription());
-        Glide.with(getContext()).load(arr.get(bundle.getInt("position")).getImageURL()).into(imageFragment);
+        texttest.setText(motoEntities.get(bundle.getInt("position")).getMotor_name());
+        texttest2.setText(motoEntities.get(bundle.getInt("position")).getMotor_desc());
+        Glide.with(getContext()).load(motoEntities.get(bundle.getInt("position")).getMoto_image()).into(imageFragment);
 
         return v;
 
