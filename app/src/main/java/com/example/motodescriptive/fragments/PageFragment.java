@@ -12,19 +12,22 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
+import com.example.motodescriptive.AppDatabase;
+import com.example.motodescriptive.MotoEntity;
 import com.example.motodescriptive.MotorItems;
 import com.example.motodescriptive.R;
 
 import org.w3c.dom.Text;
 
 import java.util.ArrayList;
+import java.util.List;
 
 
 public class PageFragment extends Fragment {
 
     TextView texttest;
     TextView texttest2;
-    TextView texttest3;
+    //TextView texttest3;
     ImageView imageFragment;
 
     @Override
@@ -41,16 +44,16 @@ public class PageFragment extends Fragment {
 
         texttest = v.findViewById(R.id.texttest);
         texttest2 = v.findViewById(R.id.texttest2);
-        texttest3 = v.findViewById(R.id.texttest3);
+        //texttest3 = v.findViewById(R.id.texttest3);
         imageFragment = v.findViewById(R.id.imageFragment);
 
         Bundle bundle = getArguments();
-        ArrayList<MotorItems> arr = bundle.getParcelableArrayList("arrayL");
+        List<MotoEntity> arr = AppDatabase.getInstance(getContext()).motoDao().selectAll();
 
-        texttest.setText(arr.get(bundle.getInt("position")).getName());
-        texttest2.setText(arr.get(bundle.getInt("position")).getDescription());
-        texttest3.setText(arr.get(bundle.getInt("position")).getFullDescription());
-        Glide.with(getContext()).load(arr.get(bundle.getInt("position")).getImageURL()).into(imageFragment);
+        texttest.setText(arr.get(bundle.getInt("position")).getMoto_name());
+        texttest2.setText(arr.get(bundle.getInt("position")).getMoto_desc());
+        //texttest3.setText(arr.get(bundle.getInt("position")).getFullDescription());
+        Glide.with(getContext()).load(arr.get(bundle.getInt("position")).getMoto_img()).into(imageFragment);
 
         return v;
 
