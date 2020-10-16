@@ -23,12 +23,12 @@ import java.util.List;
 
 public class MotorAdapter extends RecyclerView.Adapter<MotorAdapter.ViewHolder> implements Filterable {
 
-    private ArrayList<MotorItems> arr;
-    private ArrayList<MotorItems> arrFull;
+    private ArrayList<MotoEntity> arr;
+    private ArrayList<MotoEntity> arrFull;
     private OnNoteClicked onNoteClicked;
     private Context context;
 
-    public MotorAdapter(ArrayList<MotorItems> motorcycles, OnNoteClicked onNoteClicked, Context context) {
+    public MotorAdapter(ArrayList<MotoEntity> motorcycles, OnNoteClicked onNoteClicked, Context context) {
         this.arr = motorcycles;
         this.arrFull = new ArrayList<>(arr);
         this.onNoteClicked = onNoteClicked;
@@ -44,9 +44,10 @@ public class MotorAdapter extends RecyclerView.Adapter<MotorAdapter.ViewHolder> 
 
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
-        holder.text1.setText(arr.get(position).getName());
-        holder.text2.setText(arr.get(position).getDescription());
-        Glide.with(context).load(arr.get(position).getImageURL()).into(holder.image1);
+        MotoEntity motoEntity = arr.get(position);
+        holder.text1.setText(motoEntity.getMotor_name());
+        holder.text2.setText(motoEntity.getMotor_desc());
+        Glide.with(context).load(motoEntity.getMoto_image()).into(holder.image1);
 
     }
 
@@ -63,14 +64,14 @@ public class MotorAdapter extends RecyclerView.Adapter<MotorAdapter.ViewHolder> 
     Filter ExampleFilter = new Filter() {
         @Override
         protected FilterResults performFiltering(CharSequence charSequence) {
-            ArrayList<MotorItems> filteredList = new ArrayList<>();
+            ArrayList<MotoEntity> filteredList = new ArrayList<>();
 
             if(charSequence == null || charSequence.length() == 0) {
                 filteredList.addAll(arrFull);
             } else {
                 String filteredPattern = charSequence.toString().toLowerCase().trim();
-                for(MotorItems item: arrFull) {
-                    if(item.getName().toLowerCase().startsWith(filteredPattern)) {
+                for(MotoEntity item: arrFull) {
+                    if(item.getMotor_name().toLowerCase().startsWith(filteredPattern)) {
                         filteredList.add(item);
                     }
                 }
@@ -109,14 +110,11 @@ public class MotorAdapter extends RecyclerView.Adapter<MotorAdapter.ViewHolder> 
 
         @Override
         public void onClick(View view) {
-            Bundle bundle = new Bundle();
-            bundle.putParcelableArrayList("arrayL", arr);
-            bundle.putInt("position", getAdapterPosition());
-            onNoteClicked.OnNote(bundle);
+            onNoteClicked.OnNote();
         }
     }
 
     public interface OnNoteClicked {
-        void OnNote(Bundle bundle);
+        void OnNote();
     }
 }
