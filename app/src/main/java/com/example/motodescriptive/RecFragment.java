@@ -50,7 +50,7 @@ public class RecFragment extends Fragment implements MotorAdapter.OnNoteClicked 
 
 
         motoEntity5 = new MotoEntity();
-        motoEntity5.setMoto_name("tomos ");
+        motoEntity5.setMoto_name("somos ");
         motoEntity5.setMoto_desc("tasasss is awesoasssme");
         motoEntity5.setMoto_img("https://www.kolo.si/wp-content/uploads/2016/03/MOPED-TOMOS-FLEXER.ZELEN_.jpg");
 

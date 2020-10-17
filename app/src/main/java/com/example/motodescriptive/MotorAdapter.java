@@ -2,6 +2,7 @@ package com.example.motodescriptive;
 
 import android.content.Context;
 import android.os.Bundle;
+import android.os.Parcelable;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -110,6 +111,7 @@ public class MotorAdapter extends RecyclerView.Adapter<MotorAdapter.ViewHolder> 
         @Override
         public void onClick(View view) {
             Bundle bundle = new Bundle();
+            bundle.putSerializable("arrayL", arr);
             bundle.putInt("id", getAdapterPosition());
             onNoteClicked.OnNote(bundle);
         }

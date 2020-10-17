@@ -48,7 +48,7 @@ public class PageFragment extends Fragment {
         imageFragment = v.findViewById(R.id.imageFragment);
 
         Bundle bundle = getArguments();
-        List<MotoEntity> arr = AppDatabase.getInstance(getContext()).motoDao().selectAll();
+        List<MotoEntity> arr = (List<MotoEntity>) bundle.getSerializable("arrayL");
 
         texttest.setText(arr.get(bundle.getInt("id")).getMoto_name());
         texttest2.setText(arr.get(bundle.getInt("id")).getMoto_desc());
