@@ -20,7 +20,7 @@ public class RecFragment extends Fragment implements MotorAdapter.OnNoteClicked 
     private RecyclerView recyclerView;
     private MotorAdapter adapter;
     private SearchView searchView;
-    MotoEntity motoEntity;
+    MotoEntity motoEntity, motoEntity2, motoEntity3, motoEntity4, motoEntity5;
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -32,10 +32,43 @@ public class RecFragment extends Fragment implements MotorAdapter.OnNoteClicked 
         motoEntity.setMoto_name("Aprilia dorsoduro 750");
         motoEntity.setMoto_desc("test");
         motoEntity.setMoto_img("https://upload.wikimedia.org/wikipedia/commons/c/c8/Aprilia_SMV750_Dorsoduro.jpg");
+
+        motoEntity2 = new MotoEntity();
+        motoEntity2.setMoto_name("Yamaha YZF R125");
+        motoEntity2.setMoto_desc("this is awesome");
+        motoEntity2.setMoto_img("https://motosvet.com/tabla/uploads/monthly_2019_06/large.yamaha_yzf_r125.jpg.1c366691f4ec323971ed7ffabf931e1e.jpg");
+
+        motoEntity3 = new MotoEntity();
+        motoEntity3.setMoto_name("KTM duke 125");
+        motoEntity3.setMoto_desc("this is awesoasssme");
+        motoEntity3.setMoto_img("https://bd.gaadicdn.com/processedimages/ktm/125-duke/source/125-duke5ecdf3eee8762.jpg?tr=w-360");
+
+        motoEntity4 = new MotoEntity();
+        motoEntity4.setMoto_name("suzuki");
+        motoEntity4.setMoto_desc("test teste");
+        motoEntity4.setMoto_img("https://prod-suzuki.azureedge.net/media/13851/jimnytransparent.png?anchor=center&mode=crop&rnd=132255608430000000");
+
+
+        motoEntity5 = new MotoEntity();
+        motoEntity5.setMoto_name("tomos ");
+        motoEntity5.setMoto_desc("tasasss is awesoasssme");
+        motoEntity5.setMoto_img("https://www.kolo.si/wp-content/uploads/2016/03/MOPED-TOMOS-FLEXER.ZELEN_.jpg");
+
+
+
+
         MainActivity.appDatabase.motoDao().insert(motoEntity);
+        MainActivity.appDatabase.motoDao().insert(motoEntity2);
+        MainActivity.appDatabase.motoDao().insert(motoEntity3);
+        MainActivity.appDatabase.motoDao().insert(motoEntity4);
+        MainActivity.appDatabase.motoDao().insert(motoEntity5);
 
         motorcycle = new ArrayList<>();
         motorcycle.add(motoEntity);
+        motorcycle.add(motoEntity2);
+        motorcycle.add(motoEntity3);
+        motorcycle.add(motoEntity4);
+        motorcycle.add(motoEntity5);
 
         adapter = new MotorAdapter(motorcycle, this, getContext());
         recyclerView.setAdapter(adapter);

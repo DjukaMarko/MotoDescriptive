@@ -50,10 +50,10 @@ public class PageFragment extends Fragment {
         Bundle bundle = getArguments();
         List<MotoEntity> arr = AppDatabase.getInstance(getContext()).motoDao().selectAll();
 
-        texttest.setText(arr.get(bundle.getInt("position")).getMoto_name());
-        texttest2.setText(arr.get(bundle.getInt("position")).getMoto_desc());
+        texttest.setText(arr.get(bundle.getInt("id")).getMoto_name());
+        texttest2.setText(arr.get(bundle.getInt("id")).getMoto_desc());
         //texttest3.setText(arr.get(bundle.getInt("position")).getFullDescription());
-        Glide.with(getContext()).load(arr.get(bundle.getInt("position")).getMoto_img()).into(imageFragment);
+        Glide.with(getContext()).load(arr.get(bundle.getInt("id")).getMoto_img()).into(imageFragment);
 
         return v;
 

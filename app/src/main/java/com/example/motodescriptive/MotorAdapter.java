@@ -110,8 +110,7 @@ public class MotorAdapter extends RecyclerView.Adapter<MotorAdapter.ViewHolder> 
         @Override
         public void onClick(View view) {
             Bundle bundle = new Bundle();
-            //bundle.putParcelableArrayList("arrayL", arr);
-            bundle.putInt("position", getAdapterPosition());
+            bundle.putInt("id", getAdapterPosition());
             onNoteClicked.OnNote(bundle);
         }
     }
