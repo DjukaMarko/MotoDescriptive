@@ -5,11 +5,12 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.app.Activity;
 import android.os.AsyncTask;
 import android.os.Bundle;
+import android.view.Menu;
 
 import java.lang.ref.WeakReference;
 
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends BaseActivity {
 
     public static AppDatabase appDatabase;
     @Override
@@ -22,4 +23,8 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        return super.onCreateOptionsMenu(menu);
+    }
 }

@@ -5,6 +5,7 @@ import androidx.fragment.app.Fragment;
 import androidx.viewpager.widget.ViewPager;
 
 import android.os.Bundle;
+import android.view.Menu;
 import android.widget.TextView;
 
 import com.example.motodescriptive.fragments.PageFragment;
@@ -13,7 +14,7 @@ import com.google.android.material.tabs.TabLayout;
 
 import java.util.ArrayList;
 
-public class Fragments extends AppCompatActivity{
+public class Fragments extends BaseActivity{
 
     TextView texttest;
     ViewPager pager;
@@ -50,4 +51,8 @@ public class Fragments extends AppCompatActivity{
 
     }
 
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        return super.onCreateOptionsMenu(menu);
+    }
 }

@@ -12,14 +12,9 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
-import com.example.motodescriptive.AppDatabase;
 import com.example.motodescriptive.MotoEntity;
-import com.example.motodescriptive.MotorItems;
 import com.example.motodescriptive.R;
 
-import org.w3c.dom.Text;
-
-import java.util.ArrayList;
 import java.util.List;
 
 
