@@ -19,7 +19,7 @@
             app:tabTextColor="@color/black"
             app:tabIndicatorColor="@color/black"
             app:tabSelectedTextColor="@color/black"
-            android:background="@color/colorPrimary"/>
+            android:background="@color/colorPrimaryDark"/>
 
 
 

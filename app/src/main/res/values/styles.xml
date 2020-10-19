@@ -2,9 +2,10 @@
     <!-- Base application theme. -->
     <style name="AppTheme" parent="Theme.MaterialComponents.Light">
         <!-- Customize your theme here. -->
-        <item name="colorPrimary">#A4FD15</item>
-        <item name="colorPrimaryDark">#CDFF16</item>
-        <item name="colorAccent">#FFFB16</item>
+        <item name="android:fontFamily">@font/caviardreams</item>
+        <item name="colorPrimary">#FD1515</item>
+        <item name="colorPrimaryDark">#FD4141</item>
+        <item name="colorAccent">#C80909</item>
     </style>
 
 </resources>
