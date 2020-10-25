@@ -48,6 +48,7 @@ public class Fragments extends BaseActivity{
         pagerAdapter = new PagerAdapter(getSupportFragmentManager(), list);
         pager.setAdapter(pagerAdapter);
         tabLayout.setupWithViewPager(pager);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
 
 

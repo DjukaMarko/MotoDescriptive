@@ -12,12 +12,15 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.SearchView;
 
+import com.github.ksoichiro.android.observablescrollview.ObservableRecyclerView;
+
 import java.util.ArrayList;
 
 public class RecFragment extends Fragment implements MotorAdapter.OnNoteClicked {
 
     private ArrayList<MotoEntity>motorcycle;
-    private RecyclerView recyclerView;
+    //private RecyclerView recyclerView;
+    private ObservableRecyclerView recyclerView;
     private MotorAdapter adapter;
     private SearchView searchView;
     MotoEntity motoEntity, motoEntity2, motoEntity3, motoEntity4, motoEntity5;

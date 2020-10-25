@@ -1,15 +1,11 @@
 package com.example.motodescriptive;
 
-import androidx.annotation.NonNull;
-import androidx.appcompat.app.AppCompatActivity;
-
-import android.app.Activity;
-import android.os.AsyncTask;
+import android.app.ActionBar;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 
-import java.lang.ref.WeakReference;
+import androidx.annotation.NonNull;
 
 
 public class MainActivity extends BaseActivity {
@@ -19,7 +15,7 @@ public class MainActivity extends BaseActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        getSupportFragmentManager().beginTransaction().replace(R.id.realparent, new RecFragment()).commit();
+        //getSupportFragmentManager().beginTransaction().replace(R.id.realparent, new RecFragment()).commit();
         appDatabase = AppDatabase.getInstance(getApplicationContext());
 
 

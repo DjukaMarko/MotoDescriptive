@@ -14,7 +14,7 @@
         android:theme="@style/AppTheme">
         <activity android:name=".settingsActivity"></activity>
         <activity android:name=".BaseActivity" />
-        <activity android:name=".Fragments" />
+        <activity android:name=".Fragments" android:parentActivityName=".MainActivity"/>
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
