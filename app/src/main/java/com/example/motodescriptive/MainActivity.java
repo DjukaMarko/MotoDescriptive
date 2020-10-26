@@ -4,31 +4,27 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.widget.ImageView;
 import android.widget.SearchView;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.ActionBar;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.LinearLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
 
 import com.github.ksoichiro.android.observablescrollview.ObservableRecyclerView;
 import com.github.ksoichiro.android.observablescrollview.ObservableScrollViewCallbacks;
 import com.github.ksoichiro.android.observablescrollview.ScrollState;
-import com.nvanbenschoten.motion.ParallaxImageView;
 
 import java.util.ArrayList;
 
 
-public class MainActivity extends BaseActivity implements MotorAdapter.OnNoteClicked {
+public class MainActivity extends BaseActivity implements MotorAdapter.OnNoteClicked, ObservableScrollViewCallbacks {
 
     private ArrayList<MotoEntity> motorcycle;
-    private RecyclerView recyclerView;
-    //private ObservableRecyclerView recyclerView;
+    //private RecyclerView recyclerView;
+    private ObservableRecyclerView recyclerView;
     private MotorAdapter adapter;
     private SearchView searchView;
-    private ParallaxImageView imagetest;
     MotoEntity motoEntity, motoEntity2, motoEntity3, motoEntity4, motoEntity5;
     public static AppDatabase appDatabase;
     @Override
@@ -37,10 +33,8 @@ public class MainActivity extends BaseActivity implements MotorAdapter.OnNoteCli
         setContentView(R.layout.activity_main);
         appDatabase = AppDatabase.getInstance(getApplicationContext());
         recyclerView = findViewById(R.id.recyclerView);
+        recyclerView.setScrollViewCallbacks(this);
         searchView = findViewById(R.id.search_bar);
-        imagetest = findViewById(R.id.imagetest);
-        imagetest.registerSensorManager();
-
         motoEntity = new MotoEntity();
         motoEntity.setMoto_name("Aprilia dorsoduro 750");
         motoEntity.setMoto_desc("test");
@@ -118,4 +112,27 @@ public class MainActivity extends BaseActivity implements MotorAdapter.OnNoteCli
         return super.onOptionsItemSelected(item);
     }
 
+    @Override
+    public void onScrollChanged(int scrollY, boolean firstScroll, boolean dragging) {
+
+    }
+
+    @Override
+    public void onDownMotionEvent() {
+
+    }
+
+    @Override
+    public void onUpOrCancelMotionEvent(ScrollState scrollState) {
+        ActionBar actionBar = getSupportActionBar();
+        if(scrollState == ScrollState.UP) {
+            if(actionBar.isShowing()) {
+                actionBar.hide();
+            }
+        } else if(scrollState == ScrollState.DOWN) {
+            if(!actionBar.isShowing()) {
+                actionBar.show();
+            }
+        }
+    }
 }
