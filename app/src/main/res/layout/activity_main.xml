@@ -2,44 +2,38 @@
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="fill_parent"
+    android:layout_width="match_parent"
     android:id="@+id/parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
     tools:context=".MainActivity">
+    
+    
 
-    <ImageView
+    <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="200dp"
-        android:adjustViewBounds="true"
-        android:id="@+id/testimage"/>
+        android:id="@+id/relativeLayout"
+        android:layout_height="match_parent">
 
-    <View
-        android:layout_width="match_parent"
-        android:layout_height="200dp"
-        android:id="@+id/anchor"/>
+        <SearchView
+            android:layout_width="300dp"
+            android:layout_height="wrap_content"
+            android:iconifiedByDefault="false"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="20dp"
+            android:id="@+id/search_bar"
+            android:queryHint="Search"/>
 
-
-    <SearchView
-        android:layout_width="300dp"
-        android:layout_height="wrap_content"
-        android:iconifiedByDefault="false"
-        android:layout_gravity="center_horizontal"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="10dp"
-        android:layout_marginBottom="20dp"
-        android:id="@+id/search_bar"
-        android:queryHint="Search"/>
-
-    <com.github.ksoichiro.android.observablescrollview.ObservableRecyclerView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_marginLeft="10dp"
-        android:id="@+id/recyclerView"
-        android:layout_marginRight="10dp"
-        android:layout_below="@id/search_bar"/>
+        <com.github.ksoichiro.android.observablescrollview.ObservableRecyclerView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="10dp"
+            android:id="@+id/recyclerView"
+            android:layout_marginRight="10dp"
+            android:layout_below="@id/search_bar"/>
 
 
+    </RelativeLayout>
 
 
 
