@@ -6,19 +6,26 @@
     android:id="@+id/parent"
     android:layout_height="match_parent"
     tools:context=".MainActivity">
-    
-    
+
+
 
     <RelativeLayout
         android:layout_width="match_parent"
         android:id="@+id/relativeLayout"
         android:layout_height="match_parent">
 
+        <com.nvanbenschoten.motion.ParallaxImageView
+            android:layout_width="match_parent"
+            android:layout_height="200dp"
+            android:src="@color/colorPrimaryDark"
+            android:id="@+id/imagetest"/>
+
         <SearchView
             android:layout_width="300dp"
             android:layout_height="wrap_content"
             android:iconifiedByDefault="false"
             android:layout_centerHorizontal="true"
+            android:layout_below="@id/imagetest"
             android:layout_marginTop="10dp"
             android:layout_marginBottom="20dp"
             android:id="@+id/search_bar"
