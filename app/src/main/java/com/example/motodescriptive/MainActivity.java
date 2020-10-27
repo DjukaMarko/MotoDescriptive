@@ -1,23 +1,15 @@
 package com.example.motodescriptive;
 
 import android.content.Intent;
-import android.graphics.Rect;
 import android.os.Bundle;
-import android.util.DisplayMetrics;
-import android.util.TypedValue;
-import android.view.Display;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.view.View;
 import android.widget.ImageView;
 import android.widget.SearchView;
 
 import androidx.annotation.NonNull;
-import androidx.appcompat.app.ActionBar;
-import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
-
 
 import com.bumptech.glide.Glide;
 
@@ -30,6 +22,7 @@ public class MainActivity extends BaseActivity implements MotorAdapter.OnNoteCli
     private RecyclerView recyclerView;
     private MotorAdapter adapter;
     private SearchView searchView;
+    private ImageView imageView;
     MotoEntity motoEntity, motoEntity2, motoEntity3, motoEntity4, motoEntity5;
     public static AppDatabase appDatabase;
     @Override
@@ -38,6 +31,8 @@ public class MainActivity extends BaseActivity implements MotorAdapter.OnNoteCli
         setContentView(R.layout.activity_main);
         appDatabase = AppDatabase.getInstance(getApplicationContext());
         recyclerView = findViewById(R.id.recyclerView);
+        imageView = findViewById(R.id.imageViewCollapsing);
+        Glide.with(this).load("https://motosvet.com/tabla/uploads/monthly_2019_06/large.yamaha_yzf_r125.jpg.1c366691f4ec323971ed7ffabf931e1e.jpg").into(imageView);
         searchView = findViewById(R.id.search_bar);
 
 
