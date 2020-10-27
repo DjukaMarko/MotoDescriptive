@@ -10,8 +10,8 @@
     android:id="@+id/parent">
 
     <FrameLayout
-        android:layout_width="190dp"
-        android:layout_height="210dp"
+        android:layout_width="match_parent"
+        android:layout_height="190dp"
         android:padding="2dp"
         android:background="@color/black">
 
@@ -28,7 +28,7 @@
 
                 <ImageView
                     android:layout_width="match_parent"
-                    android:layout_height="135dp"
+                    android:layout_height="115dp"
                     android:src="@drawable/ic_launcher_background"
                     android:id="@+id/image1"
                     android:scaleType="centerCrop"/>
@@ -50,7 +50,7 @@
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:textSize="17dp"
+                            android:textSize="20dp"
                             android:id="@+id/text1"
                             android:text="hey1"/>
 
