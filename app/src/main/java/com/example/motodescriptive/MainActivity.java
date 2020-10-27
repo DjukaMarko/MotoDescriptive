@@ -1,6 +1,7 @@
 package com.example.motodescriptive;
 
 import android.content.Intent;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -38,6 +39,8 @@ public class MainActivity extends BaseActivity implements MotorAdapter.OnNoteCli
 
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+
+        getWindow().getDecorView().setBackgroundColor(Color.parseColor("#EDEDED"));
 
 
         motoEntity = new MotoEntity();

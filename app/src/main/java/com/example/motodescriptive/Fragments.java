@@ -1,15 +1,14 @@
 package com.example.motodescriptive;
 
-import androidx.annotation.NonNull;
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.appcompat.widget.Toolbar;
-import androidx.fragment.app.Fragment;
-import androidx.viewpager.widget.ViewPager;
-
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.TextView;
+
+import androidx.annotation.NonNull;
+import androidx.appcompat.widget.Toolbar;
+import androidx.fragment.app.Fragment;
+import androidx.viewpager.widget.ViewPager;
 
 import com.example.motodescriptive.fragments.PageFragment;
 import com.example.motodescriptive.fragments.PageFragment2;
@@ -17,7 +16,7 @@ import com.google.android.material.tabs.TabLayout;
 
 import java.util.ArrayList;
 
-public class Fragments extends BaseActivity{
+public class Fragments extends BaseActivity {
 
     TextView texttest;
     ViewPager pager;
@@ -51,7 +50,6 @@ public class Fragments extends BaseActivity{
         pagerAdapter = new PagerAdapter(getSupportFragmentManager(), list);
         pager.setAdapter(pagerAdapter);
         tabLayout.setupWithViewPager(pager);
-
 
 
     }

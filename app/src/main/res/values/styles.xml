@@ -2,8 +2,8 @@
     <!-- Base application theme. -->
     <style name="AppTheme" parent="Theme.MaterialComponents.Light">
         <!-- Customize your theme here. -->
-        <item name="colorPrimary">#FD1515</item>
-        <item name="colorPrimaryDark">#FD4141</item>
+        <item name="colorPrimary">@android:color/transparent</item>
+        <item name="colorPrimaryDark">#63000000</item>
         <item name="colorAccent">#C80909</item>
     </style>
 

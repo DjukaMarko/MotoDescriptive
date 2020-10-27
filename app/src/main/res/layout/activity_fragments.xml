@@ -8,7 +8,7 @@
     tools:context=".Fragments">
 
     <include layout="@layout/toolbar"
-        android:id="@+id/toolbar"/>
+        android:id="@+id/toolbar" />
 
 
     <androidx.viewpager.widget.ViewPager
