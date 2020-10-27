@@ -2,6 +2,7 @@ package com.example.motodescriptive;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
 import androidx.fragment.app.Fragment;
 import androidx.viewpager.widget.ViewPager;
 
@@ -30,6 +31,8 @@ public class Fragments extends BaseActivity{
         setContentView(R.layout.activity_fragments);
 
         texttest = findViewById(R.id.texttest);
+        Toolbar toolbar = findViewById(R.id.toolbar);
+        setSupportActionBar(toolbar);
 
         Bundle extras = getIntent().getExtras();
         Fragment frg = new PageFragment();
@@ -48,7 +51,6 @@ public class Fragments extends BaseActivity{
         pagerAdapter = new PagerAdapter(getSupportFragmentManager(), list);
         pager.setAdapter(pagerAdapter);
         tabLayout.setupWithViewPager(pager);
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
 
 

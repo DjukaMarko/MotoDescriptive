@@ -1,8 +1,7 @@
 <resources>
     <!-- Base application theme. -->
-    <style name="AppTheme" parent="Theme.MaterialComponents.Light.NoActionBar">
+    <style name="AppTheme" parent="Theme.MaterialComponents.Light">
         <!-- Customize your theme here. -->
-        <item name="android:fontFamily">@font/caviardreams</item>
         <item name="colorPrimary">#FD1515</item>
         <item name="colorPrimaryDark">#FD4141</item>
         <item name="colorAccent">#C80909</item>
@@ -11,5 +10,11 @@
     <style name="Theme.App" parent="Theme.MaterialComponents.Light.NoActionBar">
         <item name="android:windowTranslucentStatus">true</item>
     </style>
+
+    <style name="AppTheme.NoActionBar">
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+    </style>
+
 
 </resources>

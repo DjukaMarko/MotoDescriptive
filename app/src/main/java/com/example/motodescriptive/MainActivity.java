@@ -8,6 +8,7 @@ import android.widget.ImageView;
 import android.widget.SearchView;
 
 import androidx.annotation.NonNull;
+import androidx.appcompat.widget.Toolbar;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -32,8 +33,11 @@ public class MainActivity extends BaseActivity implements MotorAdapter.OnNoteCli
         appDatabase = AppDatabase.getInstance(getApplicationContext());
         recyclerView = findViewById(R.id.recyclerView);
         imageView = findViewById(R.id.imageViewCollapsing);
-        Glide.with(this).load("https://motosvet.com/tabla/uploads/monthly_2019_06/large.yamaha_yzf_r125.jpg.1c366691f4ec323971ed7ffabf931e1e.jpg").into(imageView);
+        Glide.with(this).load("https://cdn.dealerspike.com/imglib/v1/800x600/imglib/trimsdb/8335041-0-47664921.jpg").into(imageView);
         searchView = findViewById(R.id.search_bar);
+
+        Toolbar toolbar = findViewById(R.id.toolbar);
+        setSupportActionBar(toolbar);
 
 
         motoEntity = new MotoEntity();
