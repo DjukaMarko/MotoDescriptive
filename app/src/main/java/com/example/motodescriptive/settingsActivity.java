@@ -15,11 +15,18 @@ public class settingsActivity extends BaseActivity {
         setContentView(R.layout.activity_settings);
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
     }
 
     @Override
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
-        onBackPressed();
-        return true;
+        switch(item.getItemId()) {
+            case R.id.settings:
+                return true;
+            default:
+                onBackPressed();
+                return super.onOptionsItemSelected(item);
+        }
     }
 }
+

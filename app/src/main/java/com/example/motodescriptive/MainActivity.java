@@ -27,6 +27,7 @@ public class MainActivity extends BaseActivity implements MotorAdapter.OnNoteCli
     private ImageView imageView;
     MotoEntity motoEntity, motoEntity2, motoEntity3, motoEntity4, motoEntity5;
     public static AppDatabase appDatabase;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -34,18 +35,19 @@ public class MainActivity extends BaseActivity implements MotorAdapter.OnNoteCli
         appDatabase = AppDatabase.getInstance(getApplicationContext());
         recyclerView = findViewById(R.id.recyclerView);
         imageView = findViewById(R.id.imageViewCollapsing);
+        imageView.setClipToOutline(true);
         Glide.with(this).load("https://cdn.dealerspike.com/imglib/v1/800x600/imglib/trimsdb/8335041-0-47664921.jpg").into(imageView);
         searchView = findViewById(R.id.search_bar);
 
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
-        getWindow().getDecorView().setBackgroundColor(Color.parseColor("#EDEDED"));
+        getWindow().getDecorView().setBackgroundColor(Color.parseColor("#F1F1F1"));
 
 
         motoEntity = new MotoEntity();
         motoEntity.setMoto_name("Aprilia dorsoduro 750");
-        motoEntity.setMoto_desc("test");
+        motoEntity.setMoto_desc("Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s");
         motoEntity.setMoto_img("https://upload.wikimedia.org/wikipedia/commons/c/c8/Aprilia_SMV750_Dorsoduro.jpg");
 
         motoEntity2 = new MotoEntity();
@@ -70,8 +72,6 @@ public class MainActivity extends BaseActivity implements MotorAdapter.OnNoteCli
         motoEntity5.setMoto_img("https://www.kolo.si/wp-content/uploads/2016/03/MOPED-TOMOS-FLEXER.ZELEN_.jpg");
 
 
-
-
         MainActivity.appDatabase.motoDao().insert(motoEntity);
         MainActivity.appDatabase.motoDao().insert(motoEntity2);
         MainActivity.appDatabase.motoDao().insert(motoEntity3);
@@ -87,12 +87,7 @@ public class MainActivity extends BaseActivity implements MotorAdapter.OnNoteCli
 
         adapter = new MotorAdapter(motorcycle, this, getApplicationContext());
         recyclerView.setAdapter(adapter);
-        recyclerView.setLayoutManager(new LinearLayoutManager(this) {
-            @Override
-            public boolean canScrollVertically() {
-                return true;
-            }
-        });
+        recyclerView.setLayoutManager(new LinearLayoutManager(this));
 
         searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
             @Override
@@ -108,6 +103,7 @@ public class MainActivity extends BaseActivity implements MotorAdapter.OnNoteCli
         });
 
     }
+
     @Override
     public void OnNote(Bundle bundle) {
         Intent intent = new Intent(getApplicationContext(), Fragments.class);

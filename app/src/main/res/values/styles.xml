@@ -2,9 +2,9 @@
     <!-- Base application theme. -->
     <style name="AppTheme" parent="Theme.MaterialComponents.Light">
         <!-- Customize your theme here. -->
-        <item name="colorPrimary">@android:color/transparent</item>
-        <item name="colorPrimaryDark">#63000000</item>
-        <item name="colorAccent">#C80909</item>
+        <item name="colorPrimary">#029FC6</item>
+        <item name="colorPrimaryDark">#029FC6</item>
+        <item name="colorAccent">#A903A5F1</item>
     </style>
 
     <style name="Theme.App" parent="Theme.MaterialComponents.Light.NoActionBar">

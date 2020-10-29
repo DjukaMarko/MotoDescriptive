@@ -32,6 +32,7 @@ public class Fragments extends BaseActivity {
         texttest = findViewById(R.id.texttest);
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
         Bundle extras = getIntent().getExtras();
         Fragment frg = new PageFragment();

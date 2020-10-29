@@ -4,28 +4,27 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
-    android:padding="10dp"
-    android:layout_margin="5dp"
     tools:context=".MainActivity"
     android:id="@+id/parent">
 
 
     <com.google.android.material.card.MaterialCardView
         android:layout_width="match_parent"
-        android:layout_height="190dp"
-        android:layout_margin="10dp"
-        app:cardElevation="10dp"
-        app:cardCornerRadius="10dp"
+        android:layout_height="130dp"
+        android:layout_margin="15dp"
+        app:cardElevation="4dp"
+        app:cardCornerRadius="7dp"
         android:id="@+id/cardView">
 
         <RelativeLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:layout_height="match_parent">
 
             <ImageView
-                android:layout_width="match_parent"
-                android:layout_height="115dp"
-                android:src="@drawable/ic_launcher_background"
+                android:layout_width="150dp"
+                android:layout_height="match_parent"
+                android:padding="3dp"
+                android:background="@color/colorPrimaryDark"
                 android:id="@+id/image1"
                 android:scaleType="centerCrop"/>
 
@@ -33,27 +32,27 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:background="@color/white"
-                android:layout_below="@id/image1">
+                android:layout_toRightOf="@id/image1">
 
                 <LinearLayout
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:padding="2dp"
-                    android:layout_marginLeft="5dp"
-                    android:layout_marginTop="7dp"
+                    android:layout_margin="10dp"
                     android:orientation="vertical">
 
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:textSize="20dp"
+                        android:textStyle="bold|italic"
+                        android:textSize="15dp"
                         android:id="@+id/text1"
                         android:text="hey1"/>
 
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:textSize="15dp"
+                        android:textStyle="italic"
+                        android:textSize="12dp"
                         android:id="@+id/text2"
                         android:text="hey2"/>
 
