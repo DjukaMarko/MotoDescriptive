@@ -62,6 +62,24 @@
                 android:text="fw"
                 android:layout_below="@id/texttest"/>
 
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/texttestmid2"
+                android:layout_margin="15dp"
+                android:textSize="15dp"
+                android:text="fw"
+                android:layout_below="@id/texttest2"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/texttestmid3"
+                android:layout_margin="15dp"
+                android:textSize="15dp"
+                android:text="fw"
+                android:layout_below="@id/texttestmid2"/>
+
 
 
 

@@ -24,11 +24,11 @@ public class PageFragment2 extends Fragment {
         // Inflate the layout for this fragment
         View v = inflater.inflate(R.layout.fragment_page2, container, false);
 
-        textView = v.findViewById(R.id.textview2);
+        textView = v.findViewById(R.id.texttest3);
 
         Bundle bundle = getArguments();
         List<MotoEntity> arr = (List<MotoEntity>) bundle.getSerializable("arrayL");
-        String text = arr.get(bundle.getInt("id")).getMoto_name();
+        String text = arr.get(bundle.getInt("id")).getMoto_longdesc4();
         textView.setText(text);
 
 

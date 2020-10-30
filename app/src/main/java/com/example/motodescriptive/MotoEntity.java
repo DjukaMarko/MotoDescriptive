@@ -18,6 +18,50 @@ public class MotoEntity implements Serializable {
     @ColumnInfo(name = "moto_desc")
     public String moto_desc;
 
+    @ColumnInfo(name = "moto_longdesc")
+    public String moto_longdesc;
+
+    @ColumnInfo(name = "moto_longdesc2")
+    public String moto_longdesc2;
+
+    @ColumnInfo(name = "moto_longdesc3")
+    public String moto_longdesc3;
+
+    @ColumnInfo(name = "moto_longdesc4")
+    public String moto_longdesc4;
+
+    public String getMoto_longdesc2() {
+        return moto_longdesc2;
+    }
+
+    public void setMoto_longdesc2(String moto_longdesc2) {
+        this.moto_longdesc2 = moto_longdesc2;
+    }
+
+    public String getMoto_longdesc3() {
+        return moto_longdesc3;
+    }
+
+    public void setMoto_longdesc3(String moto_longdesc3) {
+        this.moto_longdesc3 = moto_longdesc3;
+    }
+
+    public String getMoto_longdesc4() {
+        return moto_longdesc4;
+    }
+
+    public void setMoto_longdesc4(String moto_longdesc4) {
+        this.moto_longdesc4 = moto_longdesc4;
+    }
+
+    public String getMoto_longdesc() {
+        return moto_longdesc;
+    }
+
+    public void setMoto_longdesc(String moto_longdesc) {
+        this.moto_longdesc = moto_longdesc;
+    }
+
     @ColumnInfo(name = "moto_img")
     public String moto_img;
 

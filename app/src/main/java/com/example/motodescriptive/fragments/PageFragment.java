@@ -20,9 +20,7 @@ import java.util.List;
 
 public class PageFragment extends Fragment {
 
-    TextView texttest;
-    TextView texttest2;
-    //TextView texttest3;
+    TextView texttest, texttest2, texttestmid2, texttestmid3;
     ImageView imageFragment;
 
     @Override
@@ -39,15 +37,17 @@ public class PageFragment extends Fragment {
 
         texttest = v.findViewById(R.id.texttest);
         texttest2 = v.findViewById(R.id.texttest2);
-        //texttest3 = v.findViewById(R.id.texttest3);
+        texttestmid2 = v.findViewById(R.id.texttestmid2);
+        texttestmid3 = v.findViewById(R.id.texttestmid3);
         imageFragment = v.findViewById(R.id.imageFragment);
 
         Bundle bundle = getArguments();
         List<MotoEntity> arr = (List<MotoEntity>) bundle.getSerializable("arrayL");
 
         texttest.setText(arr.get(bundle.getInt("id")).getMoto_name());
-        texttest2.setText(arr.get(bundle.getInt("id")).getMoto_desc());
-        //texttest3.setText(arr.get(bundle.getInt("position")).getFullDescription());
+        texttest2.setText(arr.get(bundle.getInt("id")).getMoto_longdesc());
+        texttestmid2.setText(arr.get(bundle.getInt("id")).getMoto_longdesc2());
+        texttestmid3.setText(arr.get(bundle.getInt("id")).getMoto_longdesc3());
         Glide.with(getContext()).load(arr.get(bundle.getInt("id")).getMoto_img()).into(imageFragment);
 
         return v;
