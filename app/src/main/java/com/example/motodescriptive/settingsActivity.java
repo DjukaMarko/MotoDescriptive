@@ -36,8 +36,10 @@ public class settingsActivity extends BaseActivity {
         switch(item.getItemId()) {
             case R.id.settings:
                 return true;
-            default:
+            case android.R.id.home:
                 onBackPressed();
+                return true;
+            default:
                 return super.onOptionsItemSelected(item);
         }
     }

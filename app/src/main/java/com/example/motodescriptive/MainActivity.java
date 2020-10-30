@@ -7,6 +7,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.ImageView;
 import android.widget.SearchView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.widget.Toolbar;
@@ -42,7 +43,6 @@ public class MainActivity extends BaseActivity implements MotorAdapter.OnNoteCli
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
-        getWindow().getDecorView().setBackgroundColor(Color.parseColor("#F1F1F1"));
 
 
         motoEntity = new MotoEntity();
@@ -106,7 +106,7 @@ public class MainActivity extends BaseActivity implements MotorAdapter.OnNoteCli
             @Override
             public boolean onQueryTextChange(String s) {
                 adapter.getFilter().filter(s);
-                return false;
+                return true;
             }
         });
 
