@@ -1,9 +1,7 @@
 package com.example.motodescriptive;
 
-import android.graphics.Color;
 import android.os.Bundle;
 import android.view.MenuItem;
-import android.view.View;
 import android.widget.CompoundButton;
 import android.widget.Switch;
 

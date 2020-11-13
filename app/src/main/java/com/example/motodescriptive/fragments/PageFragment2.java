@@ -1,18 +1,16 @@
 package com.example.motodescriptive.fragments;
 
 import android.os.Bundle;
-
-import androidx.fragment.app.Fragment;
-
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
+import androidx.fragment.app.Fragment;
+
 import com.example.motodescriptive.MotoEntity;
 import com.example.motodescriptive.R;
 
-import java.util.ArrayList;
 import java.util.List;
 
 public class PageFragment2 extends Fragment {
