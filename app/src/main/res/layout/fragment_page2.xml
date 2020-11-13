@@ -11,6 +11,7 @@
         android:layout_height="match_parent"
         android:layout_margin="20dp"
         android:id="@+id/texttest3"
+        android:textColor="@color/colorText"
         android:text="mentsdfsd" />
 
 </FrameLayout>

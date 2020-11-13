@@ -5,11 +5,17 @@ import android.graphics.Color;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.CompoundButton;
+import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.SearchView;
+import android.widget.Switch;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
+import androidx.appcompat.app.AppCompatDelegate;
 import androidx.appcompat.widget.Toolbar;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -42,6 +48,7 @@ public class MainActivity extends BaseActivity implements MotorAdapter.OnNoteCli
 
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+
 
 
 
@@ -109,8 +116,8 @@ public class MainActivity extends BaseActivity implements MotorAdapter.OnNoteCli
                 return true;
             }
         });
-
     }
+
 
     @Override
     public void OnNote(Bundle bundle) {

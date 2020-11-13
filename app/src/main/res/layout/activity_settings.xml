@@ -22,13 +22,14 @@
             android:layout_margin="7dp"
             android:layout_height="wrap_content"
             android:text="@string/settings"
+            android:textColor="@color/colorViewPagerLine"
             android:textSize="15dp"
             android:textStyle="bold"/>
 
         <View
             android:layout_width="wrap_content"
             android:layout_height="1dp"
-            android:background="@color/gray"
+            android:background="@color/colorSettingsLine"
             android:layout_margin="10dp"
             android:id="@+id/line"
             android:layout_below="@id/toolbar"/>
@@ -41,29 +42,33 @@
         android:layout_height="55dp"
         android:layout_margin="15dp"
         android:id="@+id/nightmodecard"
-        android:elevation="15dp"
-        app:cardCornerRadius="10dp"
         android:layout_below="@id/settingsLinear">
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:orientation="vertical"
             android:id="@+id/linearLayout"
-            android:padding="7dp"
+            android:background="@color/colorCardView"
+            android:orientation="horizontal"
             android:layout_height="match_parent">
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textSize="18dp"
-                android:textStyle="bold"
-                android:text="@string/night_mode"/>
+            <ImageView
+                android:layout_width="100dp"
+                android:id="@+id/imageNightMode"
+                android:layout_height="match_parent"
+                android:layout_margin="5dp"
+                android:src="@drawable/mode1"/>
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/press_to_turn_on_off_the_night_mode"
-                android:textSize="13dp"/>
+
+            <Switch
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_margin="10dp"
+                android:id="@+id/mySwitch"
+                android:checked="false"
+                android:textColor="@color/colorViewPagerLine"
+                android:text="@string/enable_dark_mode"/>
+
+
 
 
 

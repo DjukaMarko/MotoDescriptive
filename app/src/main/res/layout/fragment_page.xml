@@ -50,6 +50,7 @@
                 android:text="heytytyy"
                 android:layout_margin="15dp"
                 android:id="@+id/texttest"
+                android:textColor="@color/colorText"
                 android:textStyle="bold|italic"
                 android:textSize="20dp"/>
 
@@ -59,6 +60,7 @@
                 android:id="@+id/texttest2"
                 android:layout_margin="15dp"
                 android:textSize="15dp"
+                android:textColor="@color/colorText"
                 android:text="fw"
                 android:layout_below="@id/texttest"/>
 
@@ -67,6 +69,7 @@
                 android:layout_height="wrap_content"
                 android:id="@+id/texttestmid2"
                 android:layout_margin="15dp"
+                android:textColor="@color/colorText"
                 android:textSize="15dp"
                 android:text="fw"
                 android:layout_below="@id/texttest2"/>
@@ -76,6 +79,7 @@
                 android:layout_height="wrap_content"
                 android:id="@+id/texttestmid3"
                 android:layout_margin="15dp"
+                android:textColor="@color/colorText"
                 android:textSize="15dp"
                 android:text="fw"
                 android:layout_below="@id/texttestmid2"/>

@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#5C5C5C</color>
+    <color name="colorPrimaryDark">#000000</color>
+    <color name="colorSettingsLine">#FFFFFF</color>
+    <color name="colorBackground">#333333</color>
+    <color name="colorViewPager">#000000</color>
+    <color name="colorCardView">#555555</color>
+    <color name="colorText">#FFFFFF</color>
+    <color name="colorViewPagerLine">#FFFFFF</color>
+</resources>

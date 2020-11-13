@@ -17,7 +17,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:id="@+id/collapToolbar"
-            app:contentScrim="?attr/colorPrimary"
+            app:contentScrim="?attr/colorPrimaryDark"
             app:title="@string/app_name"
             app:layout_scrollFlags="scroll|snap|exitUntilCollapsed">
 
@@ -58,7 +58,9 @@
                 android:layout_height="50dp"
                 android:iconifiedByDefault="false"
                 android:padding="10dp"
+                android:layout_margin="10dp"
                 android:id="@+id/search_bar"
+                android:searchIcon="@drawable/icon3"
                 android:queryHint="Search"/>
 
             <androidx.recyclerview.widget.RecyclerView
