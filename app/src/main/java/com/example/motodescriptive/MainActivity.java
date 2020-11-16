@@ -1,14 +1,22 @@
 package com.example.motodescriptive;
 
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+import android.view.animation.AnimationUtils;
+import android.view.animation.LayoutAnimationController;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.SearchView;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.widget.Toolbar;
+import androidx.core.content.ContextCompat;
+import androidx.recyclerview.widget.DefaultItemAnimator;
+import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -24,7 +32,8 @@ public class MainActivity extends BaseActivity implements MotorAdapter.OnNoteCli
     private MotorAdapter adapter;
     private SearchView searchView;
     private ImageView imageView;
-    MotoEntity motoEntity, motoEntity2, motoEntity3, motoEntity4, motoEntity5;
+    private Button gridButton;
+    MotoEntity motoEntity, motoEntity2, motoEntity3, motoEntity4, motoEntity5, motoEntity6, motoEntity7;
     public static AppDatabase appDatabase;
 
     @Override
@@ -33,10 +42,30 @@ public class MainActivity extends BaseActivity implements MotorAdapter.OnNoteCli
         setContentView(R.layout.activity_main);
         appDatabase = AppDatabase.getInstance(getApplicationContext());
         recyclerView = findViewById(R.id.recyclerView);
+        recyclerView.setHasFixedSize(true);
+        recyclerView.setNestedScrollingEnabled(false);
+        recyclerView.setItemAnimator(new DefaultItemAnimator());
         imageView = findViewById(R.id.imageViewCollapsing);
         imageView.setClipToOutline(true);
         Glide.with(this).load("https://cdn.dealerspike.com/imglib/v1/800x600/imglib/trimsdb/8335041-0-47664921.jpg").into(imageView);
         searchView = findViewById(R.id.search_bar);
+        gridButton = findViewById(R.id.gridButton);
+        gridButton.setBackgroundResource(R.drawable.ic_baseline_view_headline_24);
+
+        gridButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                RecyclerView.LayoutManager manager = recyclerView.getLayoutManager();
+                if(manager instanceof GridLayoutManager) {
+                    recyclerView.setLayoutManager(new LinearLayoutManager(getApplicationContext()));
+                    gridButton.setBackgroundResource(R.drawable.ic_baseline_view_headline_24);
+                } else if(manager instanceof LinearLayoutManager) {
+                    recyclerView.setLayoutManager(new GridLayoutManager(getApplicationContext(), 2));
+                    gridButton.setBackgroundResource(R.drawable.ic_baseline_grid_on_24);
+                }
+            }
+        });
+
 
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
@@ -78,12 +107,26 @@ public class MainActivity extends BaseActivity implements MotorAdapter.OnNoteCli
         motoEntity5.setMoto_longdesc("Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s");
         motoEntity5.setMoto_img("https://www.kolo.si/wp-content/uploads/2016/03/MOPED-TOMOS-FLEXER.ZELEN_.jpg");
 
+        motoEntity6 = new MotoEntity();
+        motoEntity6.setMoto_name("test ");
+        motoEntity6.setMoto_desc("tasasss is awesoasssme");
+        motoEntity6.setMoto_longdesc("test1");
+        motoEntity6.setMoto_img("https://www.kolo.si/wp-content/uploads/2016/03/MOPED-TOMOS-FLEXER.ZELEN_.jpg");
+
+        motoEntity7 = new MotoEntity();
+        motoEntity7.setMoto_name("somos ");
+        motoEntity7.setMoto_desc("tasasss isdas awesoasssme");
+        motoEntity7.setMoto_longdesc("test2");
+        motoEntity7.setMoto_img("https://www.kolo.si/wp-content/uploads/2016/03/MOPED-TOMOS-FLEXER.ZELEN_.jpg");
+
 
         appDatabase.motoDao().insert(motoEntity);
         appDatabase.motoDao().insert(motoEntity2);
         appDatabase.motoDao().insert(motoEntity3);
         appDatabase.motoDao().insert(motoEntity4);
         appDatabase.motoDao().insert(motoEntity5);
+        appDatabase.motoDao().insert(motoEntity6);
+        appDatabase.motoDao().insert(motoEntity7);
 
         motorcycle = new ArrayList<>();
         motorcycle.add(motoEntity);
@@ -91,6 +134,8 @@ public class MainActivity extends BaseActivity implements MotorAdapter.OnNoteCli
         motorcycle.add(motoEntity3);
         motorcycle.add(motoEntity4);
         motorcycle.add(motoEntity5);
+        motorcycle.add(motoEntity6);
+        motorcycle.add(motoEntity7);
 
         adapter = new MotorAdapter(motorcycle, this, getApplicationContext());
         recyclerView.setAdapter(adapter);
@@ -109,6 +154,7 @@ public class MainActivity extends BaseActivity implements MotorAdapter.OnNoteCli
             }
         });
     }
+
 
 
     @Override

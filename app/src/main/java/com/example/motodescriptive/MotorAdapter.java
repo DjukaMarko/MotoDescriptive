@@ -5,9 +5,11 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.animation.AnimationUtils;
 import android.widget.Filter;
 import android.widget.Filterable;
 import android.widget.ImageView;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -15,6 +17,7 @@ import androidx.cardview.widget.CardView;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
+import com.google.android.material.card.MaterialCardView;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -26,11 +29,17 @@ public class MotorAdapter extends RecyclerView.Adapter<MotorAdapter.ViewHolder> 
     private OnNoteClicked onNoteClicked;
     private Context context;
 
+    @Override
+    public long getItemId(int position) {
+        return arr.get(position).getID();
+    }
+
     public MotorAdapter(ArrayList<MotoEntity> motorcycles, OnNoteClicked onNoteClicked, Context context) {
         this.arr = motorcycles;
         this.arrFull = new ArrayList<>(arr);
         this.onNoteClicked = onNoteClicked;
         this.context = context;
+        setHasStableIds(true);
     }
 
     @NonNull
@@ -92,7 +101,7 @@ public class MotorAdapter extends RecyclerView.Adapter<MotorAdapter.ViewHolder> 
         private TextView text1;
         private TextView text2;
         private ImageView image1;
-        private CardView cardView;
+        private MaterialCardView cardView;
         OnNoteClicked onNoteClicked;
         public ViewHolder(@NonNull View itemView, OnNoteClicked onNoteClicked) {
             super(itemView);

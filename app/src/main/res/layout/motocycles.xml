@@ -10,7 +10,7 @@
 
     <com.google.android.material.card.MaterialCardView
         android:layout_width="match_parent"
-        android:layout_height="200dp"
+        android:layout_height="140dp"
         android:layout_margin="10dp"
         app:cardElevation="4dp"
         app:cardCornerRadius="7dp"
@@ -18,11 +18,13 @@
 
         <RelativeLayout
             android:layout_width="match_parent"
+            android:id="@+id/relativeLayoutCard"
             android:layout_height="match_parent">
 
             <ImageView
                 android:layout_width="190dp"
                 android:layout_height="match_parent"
+                android:adjustViewBounds="true"
                 android:id="@+id/image1"
                 android:scaleType="centerCrop"/>
 
