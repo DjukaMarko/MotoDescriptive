@@ -32,7 +32,9 @@ public class MainActivity extends BaseActivity implements MotorAdapter.OnNoteCli
     private MotorAdapter adapter;
     private SearchView searchView;
     private ImageView imageView;
+    private EndlessRecyclerViewScrollListener scrollListener;
     private Button gridButton;
+    private LinearLayoutManager linearLayoutManager;
     MotoEntity motoEntity, motoEntity2, motoEntity3, motoEntity4, motoEntity5, motoEntity6, motoEntity7;
     public static AppDatabase appDatabase;
 
@@ -41,9 +43,19 @@ public class MainActivity extends BaseActivity implements MotorAdapter.OnNoteCli
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         appDatabase = AppDatabase.getInstance(getApplicationContext());
+        linearLayoutManager = new LinearLayoutManager(this);
         recyclerView = findViewById(R.id.recyclerView);
         recyclerView.setHasFixedSize(true);
         recyclerView.setNestedScrollingEnabled(false);
+        scrollListener = new EndlessRecyclerViewScrollListener(linearLayoutManager) {
+            @Override
+            public void onLoadMore(int page, int totalItemsCount, RecyclerView view) {
+                // Triggered only when new data needs to be appended to the list
+                // Add whatever code is needed to append new items to the bottom of the list
+                loadNextDataFromApi(page);
+            }
+        };
+        recyclerView.addOnScrollListener(scrollListener);
         recyclerView.setItemAnimator(new DefaultItemAnimator());
         imageView = findViewById(R.id.imageViewCollapsing);
         imageView.setClipToOutline(true);
@@ -73,7 +85,7 @@ public class MainActivity extends BaseActivity implements MotorAdapter.OnNoteCli
 
 
 
-        motoEntity = new MotoEntity();
+        /*motoEntity = new MotoEntity();
         motoEntity.setMoto_name("Aprilia dorsoduro 750");
         motoEntity.setMoto_desc("The Aprilia Dorsoduro is a line of V-twin, supermotard-class motorcycles built by Aprilia, a subsidiary of Piaggio & C. SpA.");
         motoEntity.setMoto_longdesc("Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s");
@@ -126,16 +138,26 @@ public class MainActivity extends BaseActivity implements MotorAdapter.OnNoteCli
         appDatabase.motoDao().insert(motoEntity4);
         appDatabase.motoDao().insert(motoEntity5);
         appDatabase.motoDao().insert(motoEntity6);
-        appDatabase.motoDao().insert(motoEntity7);
-
+        appDatabase.motoDao().insert(motoEntity7);*/
         motorcycle = new ArrayList<>();
-        motorcycle.add(motoEntity);
+        for(int i=0; i < 99; i++) {
+            MotoEntity motoEntity = new MotoEntity();
+            motoEntity.setMoto_name("somos " + i);
+            motoEntity.setMoto_desc("tasasss isdas awesoasssme" + i);
+            motoEntity.setMoto_longdesc("test2" + i);
+            motoEntity.setMoto_img("https://www.kolo.si/wp-content/uploads/2016/03/MOPED-TOMOS-FLEXER.ZELEN_.jpg");
+
+            appDatabase.motoDao().insert(motoEntity);
+            motorcycle.add(motoEntity);
+        }
+
+        /*motorcycle.add(motoEntity);
         motorcycle.add(motoEntity2);
         motorcycle.add(motoEntity3);
         motorcycle.add(motoEntity4);
         motorcycle.add(motoEntity5);
         motorcycle.add(motoEntity6);
-        motorcycle.add(motoEntity7);
+        motorcycle.add(motoEntity7);*/
 
         adapter = new MotorAdapter(motorcycle, this, getApplicationContext());
         recyclerView.setAdapter(adapter);
