@@ -1,2 +1,0 @@
-# MotoDescriptive
-Android application 
