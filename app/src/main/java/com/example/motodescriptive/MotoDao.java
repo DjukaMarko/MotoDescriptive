@@ -28,6 +28,10 @@ public interface MotoDao {
     @Delete
     void delete(MotoEntity motoEntity);
 
+    @Query("DELETE FROM motoentity where ID = :motoid")
+    void deleteById(int motoid);
+
+
 
 
 

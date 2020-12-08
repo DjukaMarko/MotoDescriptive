@@ -81,6 +81,16 @@
             </LinearLayout>
 
 
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/colorViewPagerLine"
+                android:layout_margin="10dp"
+                android:id="@+id/quietText"
+                android:textStyle="bold|italic"
+                android:text="@string/it_seems_so_quiet_here"
+                android:visibility="visible"/>
+
             <androidx.recyclerview.widget.RecyclerView
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"

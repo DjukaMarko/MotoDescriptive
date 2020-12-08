@@ -1,50 +1,57 @@
 package com.example.motodescriptive;
 
-import android.content.Context;
 import android.content.Intent;
+import android.os.AsyncTask;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
-import android.view.animation.AnimationUtils;
-import android.view.animation.LayoutAnimationController;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.SearchView;
+import android.widget.TextView;
 
 import androidx.annotation.NonNull;
+import androidx.appcompat.app.AppCompatDelegate;
 import androidx.appcompat.widget.Toolbar;
-import androidx.core.content.ContextCompat;
-import androidx.recyclerview.widget.DefaultItemAnimator;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
 
+import org.jsoup.Jsoup;
+import org.jsoup.nodes.Document;
+import org.jsoup.nodes.Element;
+import org.jsoup.select.Elements;
+
+import java.io.IOException;
 import java.util.ArrayList;
+import java.util.List;
 
 
 public class MainActivity extends BaseActivity implements MotorAdapter.OnNoteClicked {
 
-    private ArrayList<MotoEntity> motorcycle;
     private RecyclerView recyclerView;
     private MotorAdapter adapter;
     private SearchView searchView;
     private ImageView imageView;
     private Button gridButton;
-    MotoEntity motoEntity, motoEntity2, motoEntity3, motoEntity4, motoEntity5, motoEntity6, motoEntity7;
+    private TextView quietText;
     public static AppDatabase appDatabase;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        new WebWork().execute();
         appDatabase = AppDatabase.getInstance(getApplicationContext());
         recyclerView = findViewById(R.id.recyclerView);
         recyclerView.setHasFixedSize(true);
         recyclerView.setNestedScrollingEnabled(false);
-        recyclerView.setItemAnimator(new DefaultItemAnimator());
+
+        quietText = findViewById(R.id.quietText);
         imageView = findViewById(R.id.imageViewCollapsing);
         imageView.setClipToOutline(true);
         Glide.with(this).load("https://cdn.dealerspike.com/imglib/v1/800x600/imglib/trimsdb/8335041-0-47664921.jpg").into(imageView);
@@ -70,74 +77,16 @@ public class MainActivity extends BaseActivity implements MotorAdapter.OnNoteCli
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
+        List<MotoEntity> motorcycles = appDatabase.motoDao().selectAll();
 
 
 
-        motoEntity = new MotoEntity();
-        motoEntity.setMoto_name("Aprilia dorsoduro 750");
-        motoEntity.setMoto_desc("The Aprilia Dorsoduro is a line of V-twin, supermotard-class motorcycles built by Aprilia, a subsidiary of Piaggio & C. SpA.");
-        motoEntity.setMoto_longdesc("Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s");
-        motoEntity.setMoto_longdesc2("Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s");
-        motoEntity.setMoto_longdesc3("Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s");
-        motoEntity.setMoto_longdesc4("Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s");
-        motoEntity.setMoto_img("https://upload.wikimedia.org/wikipedia/commons/c/c8/Aprilia_SMV750_Dorsoduro.jpg");
-
-        motoEntity2 = new MotoEntity();
-        motoEntity2.setMoto_name("Yamaha YZF R125");
-        motoEntity2.setMoto_desc("this is awesome");
-        motoEntity2.setMoto_longdesc("Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s");
-        motoEntity2.setMoto_img("https://motosvet.com/tabla/uploads/monthly_2019_06/large.yamaha_yzf_r125.jpg.1c366691f4ec323971ed7ffabf931e1e.jpg");
-
-        motoEntity3 = new MotoEntity();
-        motoEntity3.setMoto_name("KTM duke 125");
-        motoEntity3.setMoto_desc("this is awesoasssme");
-        motoEntity3.setMoto_longdesc("Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s");
-        motoEntity3.setMoto_img("https://bd.gaadicdn.com/processedimages/ktm/125-duke/source/125-duke5ecdf3eee8762.jpg?tr=w-360");
-
-        motoEntity4 = new MotoEntity();
-        motoEntity4.setMoto_name("suzuki");
-        motoEntity4.setMoto_desc("test teste");
-        motoEntity4.setMoto_longdesc("Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s");
-        motoEntity4.setMoto_img("https://prod-suzuki.azureedge.net/media/13851/jimnytransparent.png?anchor=center&mode=crop&rnd=132255608430000000");
+        int visibility = motorcycles.size() > 0 ? View.INVISIBLE : View.VISIBLE;
+        quietText.setVisibility(visibility);
 
 
-        motoEntity5 = new MotoEntity();
-        motoEntity5.setMoto_name("somos ");
-        motoEntity5.setMoto_desc("tasasss is awesoasssme");
-        motoEntity5.setMoto_longdesc("Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s");
-        motoEntity5.setMoto_img("https://www.kolo.si/wp-content/uploads/2016/03/MOPED-TOMOS-FLEXER.ZELEN_.jpg");
 
-        motoEntity6 = new MotoEntity();
-        motoEntity6.setMoto_name("test ");
-        motoEntity6.setMoto_desc("tasasss is awesoasssme");
-        motoEntity6.setMoto_longdesc("test1");
-        motoEntity6.setMoto_img("https://www.kolo.si/wp-content/uploads/2016/03/MOPED-TOMOS-FLEXER.ZELEN_.jpg");
-
-        motoEntity7 = new MotoEntity();
-        motoEntity7.setMoto_name("somos ");
-        motoEntity7.setMoto_desc("tasasss isdas awesoasssme");
-        motoEntity7.setMoto_longdesc("test2");
-        motoEntity7.setMoto_img("https://www.kolo.si/wp-content/uploads/2016/03/MOPED-TOMOS-FLEXER.ZELEN_.jpg");
-
-
-        appDatabase.motoDao().insert(motoEntity);
-        appDatabase.motoDao().insert(motoEntity2);
-        appDatabase.motoDao().insert(motoEntity3);
-        appDatabase.motoDao().insert(motoEntity4);
-        appDatabase.motoDao().insert(motoEntity5);
-        appDatabase.motoDao().insert(motoEntity6);
-        appDatabase.motoDao().insert(motoEntity7);
-
-        motorcycle = new ArrayList<>();
-        motorcycle.add(motoEntity);
-        motorcycle.add(motoEntity2);
-        motorcycle.add(motoEntity3);
-        motorcycle.add(motoEntity4);
-        motorcycle.add(motoEntity5);
-        motorcycle.add(motoEntity6);
-        motorcycle.add(motoEntity7);
-
-        adapter = new MotorAdapter(motorcycle, this, getApplicationContext());
+        adapter = new MotorAdapter((ArrayList<MotoEntity>) motorcycles, this, getApplicationContext());
         recyclerView.setAdapter(adapter);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
 
@@ -174,4 +123,30 @@ public class MainActivity extends BaseActivity implements MotorAdapter.OnNoteCli
         return super.onOptionsItemSelected(item);
     }
 
+    private class WebWork extends AsyncTask<Void, Void, String> {
+
+
+        @Override
+        protected String doInBackground(Void... voids) {
+            String title = "";
+            try {
+                Document document = Jsoup.connect("https://www.hotcars.com/best-motorcycles-for-beginners/").get();
+                Elements elements = document.select("div[class=w-website]").select("div[class=w-content]");
+
+                for(Element element: elements.select("section[class=article-body]")) {
+                    title = element.select("h2").text();
+                    System.out.print(title);
+                }
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+            return null;
+        }
+
+        @Override
+        protected void onPostExecute(String s) {
+            super.onPostExecute(s);
+
+        }
+    }
 }
