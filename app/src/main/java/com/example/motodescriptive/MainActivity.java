@@ -128,15 +128,21 @@ public class MainActivity extends BaseActivity implements MotorAdapter.OnNoteCli
 
         @Override
         protected String doInBackground(Void... voids) {
-            String title = "";
             try {
                 Document document = Jsoup.connect("https://www.hotcars.com/best-motorcycles-for-beginners/").get();
-                Elements elements = document.select("div[class=w-website]").select("div[class=w-content]");
+                Elements h2s = document.select("section[class=article-body] h2");
 
-                for(Element element: elements.select("section[class=article-body]")) {
-                    title = element.select("h2").text();
-                    System.out.print(title);
+                for(Element element: h2s) {
+                    String title = element.text();
+                    Element imgUrlEl = element.nextElementSibling().selectFirst("picture").selectFirst("source");
+                    String imgUrl = imgUrlEl.attr("data-srcset");
+                    Element p1 = element.nextElementSibling().nextElementSibling();
+                    Element p2 = p1.nextElementSibling();
+                    String p = p1.text() + System.lineSeparator() + p2.text();
+
                 }
+
+
             } catch (IOException e) {
                 e.printStackTrace();
             }
